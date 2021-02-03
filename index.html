@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pokémon Data Visualization</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2">
+<style>
+body {
+  background-color: #424242;
+  color: white;
+  font: 1.0em 'Russo One';
+  text-align: center;
+}
+
+hr {
+  border: 1px solid #9E9E9E;
+}
+
+.data-table thead {
+  background-color: #DF5B5B;
+}
+
+.data-table th, .data-table td {
+  padding: 0.5em;
+}
+
+.panel {
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 0.55em;
+}
+
+.panel-header {
+  background-color: #DF5B5B;
+  padding: 0.5em;
+  border-radius: 0.5em 0.5em 0em 0em;
+}
+
+.panel-body {
+  background-color: #ECE3C1;
+  color: black;
+  padding: 0.5em;
+  border-radius: 0em 0em 0.5em 0.5em;
+}
+
+.base-stat {
+  width: 5em;
+}
+
+.table-row-even {
+  background-color: #858585;
+}
+
+.table-row-odd {
+  background-color: #9E9E9E;
+}
+
+.hbox {
+  display: flex;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-list th {
+  font: normal 1.0em 'Russo One';
+  border: 1px solid black;
+}
+
+.checkbox-list td {
+  font: italic 1.0em 'Exo 2';
+  border: 1px solid black;
+}
+
+#graphs>.flexitem {
+  margin: 1em;
+}
+
+#graphs {
+  justify-content: center;
+  align-items: center;
+}
+
+#species-table {
+  width: 120em;
+  margin: auto;
+  font: italic 0.8125em 'Exo 2';
+}
+
+#filter-panel .panel-body {
+  font-size: 0.8125em;
+}
+
+/*TODO: Remove after adding flexleaf class*/
+#filter-panel .flexitem {
+  margin: 0.25em;
+}
+
+/*TODO: Add flexleaf class, hopefully will fix spacing issues.
+   - A flexleaf is any component within a flex box
+     that itself does not contain flex boxes.
+*/
+#filter-panel .flexleaf {
+  margin: 0.25em;
+}
+</style>
+</head>
+<body>
+<div class="hbox" id="graphs">
+  <div class="panel flexitem" id="filter-panel">
+    <div class="panel-header">Filters</div>
+    <div class="panel-body hbox">
+	  <table class="checkbox-list flexitem">
+	    <thead>
+	      <tr>
+	  	    <th colspan=2>Type</th>
+	  	  </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	  	    <td><input type="checkbox" id="filter-normal"></td>
+	  	    <td><label for="filter-normal">Normal</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-fighting"></td>
+	  	    <td><label for="filter-fighting">Fighting</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-flying"></td>
+	  	    <td><label for="filter-flying">Flying</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-poison"></td>
+	  	    <td><label for="filter-poison">Poison</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-ground"></td>
+	  	    <td><label for="filter-ground">Ground</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-rock"></td>
+	  	    <td><label for="filter-rock">Rock</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-bug"></td>
+	  	    <td><label for="filter-bug">Bug</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-ghost"></td>
+	  	    <td><label for="filter-ghost">Ghost</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-steel"></td>
+	  	    <td><label for="filter-steel">Steel</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-fire"></td>
+	  	    <td><label for="filter-fire">Fire</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-water"></td>
+	  	    <td><label for="filter-water">Water</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-grass"></td>
+	  	    <td><label for="filter-grass">Grass</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-electric"></td>
+	  	    <td><label for="filter-electric">Electric</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-psychic"></td>
+	  	    <td><label for="filter-psychic">Psychic</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-ice"></td>
+	  	    <td><label for="filter-ice">Ice</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-dragon"></td>
+	  	    <td><label for="filter-dragon">Dragon</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-dark"></td>
+	  	    <td><label for="filter-dark">Dark</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-fairy"></td>
+	  	    <td><label for="filter-fairy">Fairy</label></td>
+	  	  </tr>
+		  <tr>
+	  	    <td><input type="checkbox" id="filter-all-types"></td>
+	  	    <td><label for="filter-all-types">All</label></td>
+	  	  </tr>
+	    </tbody>
+	  </table>
+	  <hr class="flexitem">
+	  <div class="vbox flexitem">
+	    <table class="checkbox-list flexitem">
+		  <thead>
+		    <tr>
+			  <th colspan=2>Generation</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+			  <td><input type="checkbox" id="filter-gen1"></td>
+			  <td><label for="filter-gen1">Gen 1</label></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" id="filter-gen2"></td>
+			  <td><label for="filter-gen2">Gen 2</label></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" id="filter-gen3"></td>
+			  <td><label for="filter-gen3">Gen 3</label></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" id="filter-gen4"></td>
+			  <td><label for="filter-gen4">Gen 4</label></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" id="filter-gen5"></td>
+			  <td><label for="filter-gen5">Gen 5</label></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" id="filter-gen6"></td>
+			  <td><label for="filter-gen6">Gen 6</label></td>
+			</tr>
+			<tr>
+			  <td><input type="checkbox" id="filter-all-gens"></td>
+			  <td><label for="filter-all-gens">All</label></td>
+			</tr>
+		  </tbody>
+		</table>
+	    <hr class="flexitem">
+	    <p class="flexitem">Stats</p>
+	    <hr class="flexitem">
+	  </div>
+	</div>
+  </div>
+  <div class="flexitem">
+    <p>Stat averages across selected species</p>
+	<canvas id="stat-averages" width="500" height="500"></canvas>
+  </div>
+  <div class="flexitem">
+    <p>Type diversity</p>
+	<canvas id="type-diversity" width="300" height="300"></canvas>
+  </div>
+  <div class="flexitem">
+    <p>Average damage taken</p>
+	<canvas id="average-damage" width="250" height="500"></canvas>
+  </div>
+</div>
+<table class="data-table" id="species-table">
+  <thead>
+    <tr>
+      <th>'Dex #</th>
+      <th>Name</th>
+      <th class="base-stat">Average</th>
+      <th class="base-stat">HP</th>
+      <th class="base-stat">Attack</th>
+      <th class="base-stat">Defense</th>
+      <th class="base-stat">Sp. Atk.</th>
+      <th class="base-stat">Sp. Def.</th>
+      <th class="base-stat">Speed</th>
+      <th>Type</th>
+      <th>Resistances</th>
+      <th>Weaknesses</th>
+    </tr>
+  </thead>
+  <tbody id="species-table-tbody"></tbody>
+</table>
+
+<script src="node_modules/chart.js/dist/Chart.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
