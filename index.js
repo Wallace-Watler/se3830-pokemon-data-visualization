@@ -62,6 +62,12 @@ const TYPE_DMG_MUL = [
     [1.0, 2.0, 1.0, 0.5, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 1.0]
 ];
 
+const SORT_CONTROL_LABELS = ["'Dex #", "Name", "Average", "HP", "Attack", "Defense", "Sp. Atk.", "Sp. Def.", "Speed"];
+const SORT_CONTROLS = ["dex", "name", "average", "hp", "attack", "defense", "sp-atk", "sp-def", "speed"]
+    .map(sortControlName => document.getElementById("sort-control-" + sortControlName));
+let sortControlActive = 0; // Which control is active
+let sortControlAscending = true; // Whether the active control is currently sorting ascending or descending
+
 const TYPE_FILTERS = TYPE_NAMES.map(name => document.getElementById("filter-" + name.toLowerCase()));
 const GEN_FILTERS = [...Array(6).keys()].map(i => document.getElementById("filter-gen" + (i + 1)));
 const MEGA_FILTER = document.getElementById("filter-megas");
@@ -119,6 +125,26 @@ function truthyOrZero(value) {
 	return value || value === 0
 }
 
+function stringIgnoreCaseComparator(a, b) {
+	if(a.toUpperCase() < b.toUpperCase()) {
+		return -1;
+	}
+	if(a.toUpperCase() > b.toUpperCase()) {
+		return 1;
+	}
+	return 0;
+};
+
+function comparator(a, b) {
+	if(a < b) {
+		return -1;
+	}
+	if(a > b) {
+		return 1;
+	}
+	return 0;
+};
+
 function typeEffectiveness(attacking, defending1, defending2) {
     return TYPE_DMG_MUL[attacking][defending1] * (truthyOrZero(defending2) ? TYPE_DMG_MUL[attacking][defending2] : 1.0);
 }
@@ -133,9 +159,18 @@ function typeMakeup(species, type) {
 
 // Translates the contents of `displayedSpecies` into the table.
 function updateTable() {
-    let evenRow = true;
-    let htmlText = "";
+	// Update header
+	for(let i = 0; i < 9; i++) {
+		if(i === sortControlActive) {
+			SORT_CONTROLS[i].innerHTML = "<u>" + SORT_CONTROL_LABELS[i] + "</u>" + (sortControlAscending ? " &#x25B4;" : " &#x25BE;");
+		} else {
+			SORT_CONTROLS[i].innerHTML = SORT_CONTROL_LABELS[i] + " &#x25B4;";
+		}
+	}
 	
+	// Insert body
+	let htmlText = "";
+    let evenRow = true;
     for(const species of displayedSpecies) {
 		const resistancesText = [...Array(18).keys()]
 		    .map(type => [typeEffectiveness(type, species.type1, species.type2), TYPE_NAMES[type]])
@@ -244,6 +279,16 @@ function updateCharts(statAverageChart, typeDiversityChart, averageDamageChart, 
 
 // Sorts `displayedSpecies` by the selected category.
 function sortSpecies() {
+	switch(sortControlActive) {
+		case 0:
+		    displayedSpecies.sort((a, b) => stringIgnoreCaseComparator(a.dexNumber, b.dexNumber) * (sortControlAscending ? 1 : -1));
+		    break;
+		case 1:
+		    displayedSpecies.sort((a, b) => stringIgnoreCaseComparator(a.name, b.name) * (sortControlAscending ? 1 : -1));
+		    break;
+		case 2: case 3: case 4: case 5: case 6: case 7: case 8:
+		    displayedSpecies.sort((a, b) => comparator(a.baseStats[sortControlActive - 2], b.baseStats[sortControlActive - 2]) * (sortControlAscending ? 1 : -1));
+	}
 }
 
 // Passes `SPECIES` through all the filters and stores the result in `displayedSpecies`.
@@ -392,6 +437,16 @@ function main() {
 			maintainAspectRatio: false
         }
     });
+	
+	// Set up sorting controls
+	for(let i = 0; i < SORT_CONTROLS.length; i++) {
+		SORT_CONTROLS[i].onclick = function(event) {
+		    sortControlAscending = sortControlActive !== i || !sortControlAscending;
+		    sortControlActive = i;
+		    sortSpecies();
+		    updateTable();
+	    };
+	}
 	
 	// Set up filters
 	const updateEverything = function (msAnimate) {
