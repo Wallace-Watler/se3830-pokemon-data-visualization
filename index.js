@@ -75,9 +75,7 @@ const SPECIES = [
         name: "Bulbasaur",
 		baseStats: [53.0, 45, 49, 49, 65, 65, 45],
         type1: TYPE_NAMES.indexOf("Grass"),
-        type2: TYPE_NAMES.indexOf("Poison"),
-        resistancesText: "Fighting, Water, Grass, Electric, Fairy",
-        weaknessesText: "Flying, Fire, Psychic, Ice"
+        type2: TYPE_NAMES.indexOf("Poison")
     },
     {
         dexNumber: "002",
@@ -85,9 +83,7 @@ const SPECIES = [
         name: "Ivysaur",
 		baseStats: [67.5, 60, 62, 63, 80, 80, 60],
         type1: TYPE_NAMES.indexOf("Grass"),
-        type2: TYPE_NAMES.indexOf("Poison"),
-        resistancesText: "Fighting, Water, Grass, Electric, Fairy",
-        weaknessesText: "Flying, Fire, Psychic, Ice"
+        type2: TYPE_NAMES.indexOf("Poison")
     },
     {
         dexNumber: "003",
@@ -95,18 +91,14 @@ const SPECIES = [
         name: "Venusaur",
 		baseStats: [87.5, 80, 82, 83, 100, 100, 80],
         type1: TYPE_NAMES.indexOf("Grass"),
-        type2: TYPE_NAMES.indexOf("Poison"),
-        resistancesText: "Fighting, Water, Grass, Electric, Fairy",
-        weaknessesText: "Flying, Fire, Psychic, Ice"
+        type2: TYPE_NAMES.indexOf("Poison")
     },
     {
         dexNumber: "004",
 		gen: 1,
         name: "Charmander",
 		baseStats: [51.5, 39, 52, 43, 60, 50, 65],
-        type1: TYPE_NAMES.indexOf("Fire"),
-        resistancesText: "Bug, Steel, Fire, Grass, Ice, Fairy",
-        weaknessesText: "Ground, Rock, Water"
+        type1: TYPE_NAMES.indexOf("Fire")
     }
 ];
 
@@ -145,6 +137,17 @@ function updateTable() {
     let htmlText = "";
 	
     for(const species of displayedSpecies) {
+		const resistancesText = [...Array(18).keys()]
+		    .map(type => [typeEffectiveness(type, species.type1, species.type2), TYPE_NAMES[type]])
+			.filter(eff => eff[0] < 1.0)
+			.map(eff => eff[1])
+			.join(", ");
+		const weaknessesText = [...Array(18).keys()]
+		    .map(type => [typeEffectiveness(type, species.type1, species.type2), TYPE_NAMES[type]])
+			.filter(eff => eff[0] > 1.0)
+			.map(eff => eff[1])
+			.join(", ");
+		
         htmlText += "<tr class='table-row-" + (evenRow ? "even" : "odd") + "'>";
         htmlText += "<td>" + species.dexNumber + "</td>";
         htmlText += "<td>" + species.name + "</td>";
@@ -152,8 +155,8 @@ function updateTable() {
 			htmlText += "<td>" + stat + "</td>";
 		}
 		htmlText += "<td>" + TYPE_NAMES[species.type1] + (truthyOrZero(species.type2) ? ("/" + TYPE_NAMES[species.type2]) : "") + "</td>";
-        htmlText += "<td>" + species.resistancesText + "</td>";
-        htmlText += "<td>" + species.weaknessesText + "</td>";
+        htmlText += "<td>" + resistancesText + "</td>";
+        htmlText += "<td>" + weaknessesText + "</td>";
         htmlText += "</tr>";
         evenRow = !evenRow;
     }
