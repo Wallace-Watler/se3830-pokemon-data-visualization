@@ -64,20 +64,16 @@ const TYPE_DMG_MUL = [
 
 const TYPE_FILTERS = TYPE_NAMES.map(name => document.getElementById("filter-" + name.toLowerCase()));
 const GEN_FILTERS = [...Array(6).keys()].map(i => document.getElementById("filter-gen" + (i + 1)));
+const MEGA_FILTER = document.getElementById("filter-megas");
+let sliders = [];
 
-// All species, loaded from external CSV.
+// TODO: All species, loaded from external CSV.
 const SPECIES = [
     {
         dexNumber: "001",
 		gen: 1,
         name: "Bulbasaur",
-        average: 53.0,
-        hp: 45,
-        attack: 49,
-        defense: 49,
-        spAtk: 65,
-        spDef: 65,
-        speed: 45,
+		baseStats: [53.0, 45, 49, 49, 65, 65, 45],
         type1: TYPE_NAMES.indexOf("Grass"),
         type2: TYPE_NAMES.indexOf("Poison"),
         resistancesText: "Fighting, Water, Grass, Electric, Fairy",
@@ -87,13 +83,7 @@ const SPECIES = [
         dexNumber: "002",
 		gen: 1,
         name: "Ivysaur",
-        average: 67.5,
-        hp: 60,
-        attack: 62,
-        defense: 63,
-        spAtk: 80,
-        spDef: 80,
-        speed: 60,
+		baseStats: [67.5, 60, 62, 63, 80, 80, 60],
         type1: TYPE_NAMES.indexOf("Grass"),
         type2: TYPE_NAMES.indexOf("Poison"),
         resistancesText: "Fighting, Water, Grass, Electric, Fairy",
@@ -103,13 +93,7 @@ const SPECIES = [
         dexNumber: "003",
 		gen: 1,
         name: "Venusaur",
-        average: 87.5,
-        hp: 80,
-        attack: 82,
-        defense: 83,
-        spAtk: 100,
-        spDef: 100,
-        speed: 80,
+		baseStats: [87.5, 80, 82, 83, 100, 100, 80],
         type1: TYPE_NAMES.indexOf("Grass"),
         type2: TYPE_NAMES.indexOf("Poison"),
         resistancesText: "Fighting, Water, Grass, Electric, Fairy",
@@ -119,13 +103,7 @@ const SPECIES = [
         dexNumber: "004",
 		gen: 1,
         name: "Charmander",
-        average: 51.5,
-        hp: 39,
-        attack: 52,
-        defense: 43,
-        spAtk: 60,
-        spDef: 50,
-        speed: 65,
+		baseStats: [51.5, 39, 52, 43, 60, 50, 65],
         type1: TYPE_NAMES.indexOf("Fire"),
         resistancesText: "Bug, Steel, Fire, Grass, Ice, Fairy",
         weaknessesText: "Ground, Rock, Water"
@@ -170,13 +148,9 @@ function updateTable() {
         htmlText += "<tr class='table-row-" + (evenRow ? "even" : "odd") + "'>";
         htmlText += "<td>" + species.dexNumber + "</td>";
         htmlText += "<td>" + species.name + "</td>";
-        htmlText += "<td>" + species.average + "</td>";
-        htmlText += "<td>" + species.hp + "</td>";
-        htmlText += "<td>" + species.attack + "</td>";
-        htmlText += "<td>" + species.defense + "</td>";
-        htmlText += "<td>" + species.spAtk + "</td>";
-        htmlText += "<td>" + species.spDef + "</td>";
-        htmlText += "<td>" + species.speed + "</td>";
+		for(const stat of species.baseStats) {
+			htmlText += "<td>" + stat + "</td>";
+		}
 		htmlText += "<td>" + TYPE_NAMES[species.type1] + (truthyOrZero(species.type2) ? ("/" + TYPE_NAMES[species.type2]) : "") + "</td>";
         htmlText += "<td>" + species.resistancesText + "</td>";
         htmlText += "<td>" + species.weaknessesText + "</td>";
@@ -191,20 +165,19 @@ function updateTable() {
 }
 
 // Redraws the charts using the contents of `displayedSpecies`.
-function updateCharts(statAverageChart, typeDiversityChart, averageDamageChart) {
+function updateCharts(statAverageChart, typeDiversityChart, averageDamageChart, msAnimate) {
 	statAverageChart.data.datasets = [{
         data: round([
-		    displayedSpecies.map(s => s.average).mean(),
-			displayedSpecies.map(s => s.hp).mean(),
-			displayedSpecies.map(s => s.attack).mean(),
-			displayedSpecies.map(s => s.defense).mean(),
-			displayedSpecies.map(s => s.spAtk).mean(),
-			displayedSpecies.map(s => s.spDef).mean(),
-			displayedSpecies.map(s => s.speed).mean()
+		    displayedSpecies.map(s => s.baseStats[0]).mean(),
+			displayedSpecies.map(s => s.baseStats[1]).mean(),
+			displayedSpecies.map(s => s.baseStats[2]).mean(),
+			displayedSpecies.map(s => s.baseStats[3]).mean(),
+			displayedSpecies.map(s => s.baseStats[4]).mean(),
+			displayedSpecies.map(s => s.baseStats[5]).mean(),
+			displayedSpecies.map(s => s.baseStats[6]).mean()
 		], 1),
         backgroundColor: "#FF0000"
     }];
-	statAverageChart.update();
 	
 	typeDiversityChart.data.datasets = [{
         data: round([
@@ -230,7 +203,6 @@ function updateCharts(statAverageChart, typeDiversityChart, averageDamageChart) 
         backgroundColor: TYPE_COLORS,
 		borderColor: "#424242"
     }];
-	typeDiversityChart.update();
 	
 	averageDamageChart.data.datasets = [{
         data: round([
@@ -255,19 +227,34 @@ function updateCharts(statAverageChart, typeDiversityChart, averageDamageChart) 
 		], 2),
         backgroundColor: TYPE_COLORS
     }];
-	averageDamageChart.update();
+	
+	if(truthyOrZero(msAnimate)) {
+		statAverageChart.update(msAnimate);
+		typeDiversityChart.update(msAnimate);
+		averageDamageChart.update(msAnimate);
+	} else {
+		statAverageChart.update();
+		typeDiversityChart.update();
+		averageDamageChart.update();
+	}
 }
 
 // Sorts `displayedSpecies` by the selected category.
 function sortSpecies() {
 }
 
-// Passes `SPECIES` through the selected filters and stores the result in `displayedSpecies`.
+// Passes `SPECIES` through all the filters and stores the result in `displayedSpecies`.
 function filterSpecies() {
 	displayedSpecies = [];
     for(const species of SPECIES) {
-		// TODO: Filter by stats
-        if((TYPE_FILTERS[species.type1].checked || (truthyOrZero(species.type2) && TYPE_FILTERS[species.type2].checked)) && GEN_FILTERS[species.gen - 1].checked) {
+		const statsMatch = [...Array(7).keys()].map(i => {
+			const handlePos = sliders[i].noUiSlider.get();
+			return species.baseStats[i] >= handlePos[0] && species.baseStats[i] <= handlePos[1];
+		}).reduce((acc, cur) => acc && cur, true);
+		
+		const typeMatches = TYPE_FILTERS[species.type1].checked || (truthyOrZero(species.type2) && TYPE_FILTERS[species.type2].checked);
+		
+        if(statsMatch && typeMatches && GEN_FILTERS[species.gen - 1].checked && (!species.isMega || MEGA_FILTER.checked)) {
 			displayedSpecies.push(species);
 		}
     }
@@ -277,6 +264,8 @@ function main() {
 	Chart.defaults.global.defaultFontFamily = "Exo 2";
 	Chart.defaults.global.defaultFontColor = "#CCCCCC";
 	Chart.defaults.global.tooltips.displayColors = false;
+	Chart.defaults.global.animation.duration = 500;
+	Chart.defaults.global.animation.easing = "easeOutExpo";
 	
 	// Computes a count by applying a function to each element and summing the results.
     // `predicate` can either return a boolean to count in the traditional sense
@@ -294,7 +283,7 @@ function main() {
     };
 	
 	// Set up sliders
-	["average", "hp", "attack", "defense", "sp-atk", "sp-def", "speed"].forEach(sliderName => {
+	sliders = ["average", "hp", "attack", "defense", "sp-atk", "sp-def", "speed"].map(sliderName => {
 		const slider = document.getElementById("slider-" + sliderName);
 		const sliderValue = document.getElementById("slider-value-" + sliderName);
 		
@@ -311,8 +300,11 @@ function main() {
 		slider.noUiSlider.on("update", (values, handle) => {
 			sliderValue.innerHTML = round(values[0]) + " - " + round(values[1]);
 		});
+		
+		return slider;
 	});
 	
+	// Set up charts
 	const statAverageChart = new Chart(document.getElementById("stat-averages"), {
         type: "bar",
         data: {
@@ -398,28 +390,56 @@ function main() {
         }
     });
 	
-	TYPE_FILTERS.forEach(typeFilter => {
-		typeFilter.onclick = function () {
-			filterSpecies();
-            sortSpecies();
-            updateTable();
-            updateCharts(statAverageChart, typeDiversityChart, averageDamageChart);
-		};
+	// Set up filters
+	const updateEverything = function (msAnimate) {
+		filterSpecies();
+        sortSpecies();
+        updateTable();
+        updateCharts(statAverageChart, typeDiversityChart, averageDamageChart, msAnimate);
+	};
+	
+	const FILTER_ALL_TYPES = document.getElementById("filter-all-types");
+	const FILTER_ALL_GENS = document.getElementById("filter-all-gens");
+	
+	TYPE_FILTERS.forEach(typeFilter => typeFilter.oninput = function (event) {
+		if(FILTER_ALL_TYPES.checked != event.target.checked) {
+			if(!event.target.checked) {
+		    	FILTER_ALL_TYPES.checked = false;
+		    } else if(event.target.checked && TYPE_FILTERS.reduce((acc, cur) => acc && cur.checked, true)) {
+		    	FILTER_ALL_TYPES.checked = true;
+		    }
+		}
+		updateEverything();
 	});
 	
-	GEN_FILTERS.forEach(genFilter => {
-		genFilter.onclick = function () {
-			filterSpecies();
-            sortSpecies();
-            updateTable();
-            updateCharts(statAverageChart, typeDiversityChart, averageDamageChart);
-		};
+	GEN_FILTERS.forEach(genFilter => genFilter.oninput = function (event) {
+		if(FILTER_ALL_GENS.checked != event.target.checked) {
+			if(!event.target.checked) {
+		    	FILTER_ALL_GENS.checked = false;
+		    } else if(event.target.checked && GEN_FILTERS.reduce((acc, cur) => acc && cur.checked, true)) {
+		    	FILTER_ALL_GENS.checked = true;
+		    }
+		}
+		updateEverything();
 	});
 	
-    filterSpecies();
-    sortSpecies();
-    updateTable();
-    updateCharts(statAverageChart, typeDiversityChart, averageDamageChart);
+	FILTER_ALL_TYPES.oninput = function (event) {
+		TYPE_FILTERS.forEach(typeFilter => typeFilter.checked = event.target.checked);
+		updateEverything();
+	};
+	
+	FILTER_ALL_GENS.oninput = function (event) {
+		GEN_FILTERS.forEach(genFilter => genFilter.checked = event.target.checked);
+		updateEverything();
+	};
+	
+	sliders.forEach(slider =>
+	    slider.noUiSlider.on("update", (values, handle, unencoded, tap, positions, noUiSlider) =>
+		    tap ? updateEverything() : updateEverything(0)));
+	
+	MEGA_FILTER.oninput = function () { updateEverything(); };
+	
+    updateEverything();
 }
 
 main();

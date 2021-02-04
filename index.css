@@ -54,6 +54,7 @@ label, #stats-input-list td {
 
 .hbox {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .vbox {
@@ -108,13 +109,13 @@ label, #stats-input-list td {
 /* ---- NO-UI STYLING ---- */
 /* Slider size and handle placement */
 .noUi-horizontal {
-  height: 0.25em;
+  height: 0.5em;
 }
 .noUi-horizontal .noUi-handle {
   width: 1.5em;
   height: 1.5em;
   right: -0.75em;
-  top: -0.625em;
+  top: -0.5625em;
 }
 
 /* Styling; giving the connect element a border radius
