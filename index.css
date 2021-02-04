@@ -1,0 +1,146 @@
+body {
+  background-color: #424242;
+  color: white;
+  font: 1.0em 'Russo One';
+  text-align: center;
+}
+
+hr {
+  border: 1px solid #9E9E9E;
+}
+
+label, #stats-input-list td {
+  font: italic 1.0em 'Exo 2';
+}
+
+.data-table thead {
+  background-color: #DF5B5B;
+}
+
+.data-table th, .data-table td {
+  padding: 0.5em;
+}
+
+.panel {
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 0.55em;
+}
+
+.panel-header {
+  background-color: #DF5B5B;
+  padding: 0.5em;
+  border-radius: 0.5em 0.5em 0em 0em;
+}
+
+.panel-body {
+  background-color: #ECE3C1;
+  color: black;
+  padding: 0.5em;
+  border-radius: 0em 0em 0.5em 0.5em;
+}
+
+.base-stat {
+  width: 5em;
+}
+
+.table-row-even {
+  background-color: #858585;
+}
+
+.table-row-odd {
+  background-color: #9E9E9E;
+}
+
+.hbox {
+  display: flex;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  width: 10.0em;
+  margin: 0.8em 1.5em;
+}
+
+.slider-label {
+  text-align: right;
+}
+
+.slider-value {
+  min-width: 4.5em;
+}
+
+#graphs>.flex-item {
+  margin: 1.5em;
+}
+
+#graphs {
+  justify-content: center;
+  align-items: center;
+}
+
+#species-table {
+  width: 120em;
+  margin: auto;
+  font: italic 0.8125em 'Exo 2';
+}
+
+#filter-panel .panel-body {
+  font-size: 0.8125em;
+}
+
+#filter-panel .flex-item {
+  margin: 0.25em 0.5em;
+}
+
+#type-filters label {
+  min-width: 5.5em;
+}
+
+#stats-input-list th {
+  font: normal 1.0em 'Russo One';
+}
+
+/* ---- NO-UI STYLING ---- */
+/* Slider size and handle placement */
+.noUi-horizontal {
+  height: 0.25em;
+}
+.noUi-horizontal .noUi-handle {
+  width: 1.5em;
+  height: 1.5em;
+  right: -0.75em;
+  top: -0.625em;
+}
+
+/* Styling; giving the connect element a border radius
+ * causes issues with using transform: scale */
+.noUi-target {
+  background: #9E9E9E;
+  border-width: 0px;
+  box-shadow: inset 0px 1px 1px #424242;
+}
+.noUi-connect {
+  background: #5B5BDF;
+  height: 1.5em;
+}
+
+/* Handles and cursors */
+.noUi-handle {
+  border-width: 0px;
+  border-radius: 0.75em;
+  background: #CCCCCC;
+  box-shadow: inset 0px 0px 1px #424242, inset 0px 5px 7px #EBEBEB, 0px 3px 6px -3px #424242;
+}
+.noUi-active {
+  box-shadow: inset 0px 0px 1px #424242, inset 0px 5px 7px #AAAAAA, 0px 3px 6px -3px #424242;
+}
+
+/* Handle stripes */
+.noUi-handle:before, .noUi-handle:after {
+  width: 0px;
+}
