@@ -160,7 +160,7 @@ function updateCharts(statAverageChart, typeDiversityChart, averageDamageChart, 
             DISPLAYED_SPECIES.map(s => s.baseStats[5]).mean(),
             DISPLAYED_SPECIES.map(s => s.baseStats[6]).mean()
         ], 1),
-        backgroundColor: "#FF0000"
+        backgroundColor: "#EA3322"
     }];
     
     typeDiversityChart.data.datasets = [{
