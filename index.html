@@ -2,9 +2,9 @@
 <html>
 <head>
 <title>Pokémon Data Visualization</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One|Exo+2">
-<link rel="stylesheet" href="node_modules/nouislider/distribute/nouislider.css">
-<link rel="stylesheet" href="index.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Russo+One|Exo+2'>
+<link rel='stylesheet' href='node_modules/nouislider/distribute/nouislider.css'>
+<link rel='stylesheet' href='index.css'>
 </head>
 <!--
 Classes
@@ -13,208 +13,231 @@ Classes
  - flex-item: A direct child of a flex box that is itself not a flex box
 -->
 <body>
-<div class="hbox" id="graphs">
-  <div class="panel flex-item" id="filter-panel">
-    <div class="panel-header">Filters</div>
-    <div class="panel-body hbox">
-	  <div class="vbox" id="type-filters">
-	    <p class="flex-item">Type</p>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-normal" checked=true>
-		  Normal
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-fighting" checked=true>
-		  Fighting
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-flying" checked=true>
-		  Flying
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-poison" checked=true>
-		  Poison
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-ground" checked=true>
-		  Ground
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-rock" checked=true>
-		  Rock
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-bug" checked=true>
-		  Bug
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-ghost" checked=true>
-		  Ghost
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-steel" checked=true>
-		  Steel
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-fire" checked=true>
-		  Fire
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-water" checked=true>
-		  Water
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-grass" checked=true>
-		  Grass
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-electric" checked=true>
-		  Electric
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-psychic" checked=true>
-		  Psychic
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-ice" checked=true>
-		  Ice
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-dragon" checked=true>
-		  Dragon
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-dark" checked=true>
-		  Dark
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-fairy" checked=true>
-		  Fairy
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-all-types" checked=true>
-		  All
-		</label>
-	  </div>
-	  <hr class="flex-item">
-	  <div class="vbox">
-	    <p class="flex-item">Generation</p>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-gen1" checked=true>
-		  Gen 1
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-gen2" checked=true>
-		  Gen 2
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-gen3" checked=true>
-		  Gen 3
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-gen4" checked=true>
-		  Gen 4
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-gen5" checked=true>
-		  Gen 5
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-gen6" checked=true>
-		  Gen 6
-		</label>
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-all-gens" checked=true>
-		  All
-		</label>
-	    <hr class="flex-item">
-	    <table class="flex-item" id="stats-input-list">
-		  <thead>
-		    <tr>
-			  <th colspan=3>Stats</th>
-			</tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-			  <td class="slider-label">Average</td>
-			  <td><div class="slider" id="slider-average"></div></td>
-			  <td class="slider-value" id="slider-value-average">0 - 255</td>
-			</tr>
-			<tr>
-			  <td class="slider-label">HP</td>
-			  <td><div class="slider" id="slider-hp"></div></td>
-			  <td class="slider-value" id="slider-value-hp">0 - 255</td>
-			</tr>
-			<tr>
-			  <td class="slider-label">Attack</td>
-			  <td><div class="slider" id="slider-attack"></div></td>
-			  <td class="slider-value" id="slider-value-attack">0 - 255</td>
-			</tr>
-			<tr>
-			  <td class="slider-label">Defense</td>
-			  <td><div class="slider" id="slider-defense"></div></td>
-			  <td class="slider-value" id="slider-value-defense">0 - 255</td>
-			</tr>
-			<tr>
-			  <td class="slider-label">Sp. Atk.</td>
-			  <td><div class="slider" id="slider-sp-atk"></div></td>
-			  <td class="slider-value" id="slider-value-sp-atk">0 - 255</td>
-			</tr>
-			<tr>
-			  <td class="slider-label">Sp. Def.</td>
-			  <td><div class="slider" id="slider-sp-def"></div></td>
-			  <td class="slider-value" id="slider-value-sp-def">0 - 255</td>
-			</tr>
-			<tr>
-			  <td class="slider-label">Speed</td>
-			  <td><div class="slider" id="slider-speed"></div></td>
-			  <td class="slider-value" id="slider-value-speed">0 - 255</td>
-			</tr>
-		  </tbody>
-		</table>
-	    <hr class="flex-item">
-		<label class="flex-item">
-		  <input type="checkbox" id="filter-megas" checked=true>
-		  Include mega evolutions
-	    </label>
-	  </div>
-	</div>
+<div class='hbox' id='graphs'>
+  <div class='panel flex-item' id='filter-panel'>
+    <div class='panel-header'>Filters</div>
+    <div class='panel-body hbox'>
+      <div class='vbox' id='type-filters'>
+        <p class='flex-item'>Type</p>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-normal' checked=true>
+          Normal
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-fighting' checked=true>
+          Fighting
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-flying' checked=true>
+          Flying
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-poison' checked=true>
+          Poison
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-ground' checked=true>
+          Ground
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-rock' checked=true>
+          Rock
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-bug' checked=true>
+          Bug
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-ghost' checked=true>
+          Ghost
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-steel' checked=true>
+          Steel
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-fire' checked=true>
+          Fire
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-water' checked=true>
+          Water
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-grass' checked=true>
+          Grass
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-electric' checked=true>
+          Electric
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-psychic' checked=true>
+          Psychic
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-ice' checked=true>
+          Ice
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-dragon' checked=true>
+          Dragon
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-dark' checked=true>
+          Dark
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-fairy' checked=true>
+          Fairy
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-all-types' checked=true>
+          All
+        </label>
+      </div>
+      <hr class='flex-item'>
+      <div class='vbox'>
+        <p class='flex-item'>Generation</p>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-gen1' checked=true>
+          Gen 1
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-gen2' checked=true>
+          Gen 2
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-gen3' checked=true>
+          Gen 3
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-gen4' checked=true>
+          Gen 4
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-gen5' checked=true>
+          Gen 5
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-gen6' checked=true>
+          Gen 6
+        </label>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-all-gens' checked=true>
+          All
+        </label>
+        <hr class='flex-item'>
+        <table class='flex-item' id='stats-input-list'>
+          <thead>
+            <tr>
+              <th colspan=3>Stats</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class='slider-label'>Average</td>
+              <td><div class='slider' id='slider-average'></div></td>
+              <td class='slider-value' id='slider-value-average'>0 - 255</td>
+            </tr>
+            <tr>
+              <td class='slider-label'>HP</td>
+              <td><div class='slider' id='slider-hp'></div></td>
+              <td class='slider-value' id='slider-value-hp'>0 - 255</td>
+            </tr>
+            <tr>
+              <td class='slider-label'>Attack</td>
+              <td><div class='slider' id='slider-attack'></div></td>
+              <td class='slider-value' id='slider-value-attack'>0 - 255</td>
+            </tr>
+            <tr>
+              <td class='slider-label'>Defense</td>
+              <td><div class='slider' id='slider-defense'></div></td>
+              <td class='slider-value' id='slider-value-defense'>0 - 255</td>
+            </tr>
+            <tr>
+              <td class='slider-label'>Sp. Atk.</td>
+              <td><div class='slider' id='slider-sp-atk'></div></td>
+              <td class='slider-value' id='slider-value-sp-atk'>0 - 255</td>
+            </tr>
+            <tr>
+              <td class='slider-label'>Sp. Def.</td>
+              <td><div class='slider' id='slider-sp-def'></div></td>
+              <td class='slider-value' id='slider-value-sp-def'>0 - 255</td>
+            </tr>
+            <tr>
+              <td class='slider-label'>Speed</td>
+              <td><div class='slider' id='slider-speed'></div></td>
+              <td class='slider-value' id='slider-value-speed'>0 - 255</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class='flex-item'>
+        <label class='flex-item'>
+          <input type='checkbox' id='filter-megas'>
+          Include mega evolutions
+        </label>
+      </div>
+    </div>
   </div>
-  <div class="flex-item">
+  <div class='flex-item'>
     <p>Stat averages across selected species</p>
-	<canvas id="stat-averages" width="500" height="500"></canvas>
+    <canvas id='stat-averages' width='400' height='500'></canvas>
   </div>
-  <div class="flex-item">
+  <div class='flex-item'>
     <p>Type diversity</p>
-	<canvas id="type-diversity" width="300" height="300"></canvas>
+    <canvas id='type-diversity' width='300' height='300'></canvas>
   </div>
-  <div class="flex-item">
-    <p>Average damage taken</p>
-	<canvas id="average-damage" width="250" height="500"></canvas>
+  <div class='flex-item'>
+    <p>Average damage taken<br>from types</p>
+    <canvas id='average-damage' width='250' height='500'></canvas>
   </div>
 </div>
-<table class="data-table" id="species-table">
+<table class='data-table' id='species-table'>
   <thead>
     <tr>
-      <th id="sort-control-dex">'Dex # &#x25B4;</th>
-      <th id="sort-control-name">Name &#x25B4;</th>
-      <th class="base-stat" id="sort-control-average">Average &#x25B4;</th>
-      <th class="base-stat" id="sort-control-hp">HP &#x25B4;</th>
-      <th class="base-stat" id="sort-control-attack">Attack &#x25B4;</th>
-      <th class="base-stat" id="sort-control-defense">Defense &#x25B4;</th>
-      <th class="base-stat" id="sort-control-sp-atk">Sp. Atk. &#x25B4;</th>
-      <th class="base-stat" id="sort-control-sp-def">Sp. Def. &#x25B4;</th>
-      <th class="base-stat" id="sort-control-speed">Speed &#x25B4;</th>
+      <th id='sort-control-dex'>'Dex # &#x25B4;</th>
+      <th id='sort-control-name'>Name &#x25B4;</th>
+      <th class='base-stat' id='sort-control-average'>Average &#x25B4;</th>
+      <th class='base-stat' id='sort-control-hp'>HP &#x25B4;</th>
+      <th class='base-stat' id='sort-control-attack'>Attack &#x25B4;</th>
+      <th class='base-stat' id='sort-control-defense'>Defense &#x25B4;</th>
+      <th class='base-stat' id='sort-control-sp-atk'>Sp. Atk. &#x25B4;</th>
+      <th class='base-stat' id='sort-control-sp-def'>Sp. Def. &#x25B4;</th>
+      <th class='base-stat' id='sort-control-speed'>Speed &#x25B4;</th>
       <th>Type</th>
       <th>Resistances</th>
       <th>Weaknesses</th>
     </tr>
   </thead>
-  <tbody id="species-table-tbody"></tbody>
+  <tbody id='species-table-tbody'></tbody>
 </table>
 
-<script src="node_modules/chart.js/dist/Chart.js"></script>
-<script src="node_modules/nouislider/distribute/nouislider.js"></script>
-<script src="index.js"></script>
+<script src='node_modules/chart.js/dist/Chart.js'></script>
+<script src='node_modules/nouislider/distribute/nouislider.js'></script>
+<script>
+const TYPE_NAMES = [
+    "Normal",
+    "Fighting",
+    "Flying",
+    "Poison",
+    "Ground",
+    "Rock",
+    "Bug",
+    "Ghost",
+    "Steel",
+    "Fire",
+    "Water",
+    "Grass",
+    "Electric",
+    "Psychic",
+    "Ice",
+    "Dragon",
+    "Dark",
+    "Fairy"
+];
+</script>
+<script src='species.js'></script>
+<script src='index.js'></script>
 </body>
 </html>

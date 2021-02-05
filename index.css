@@ -1,7 +1,7 @@
 body {
   background-color: #424242;
   color: white;
-  font: 1.0em 'Russo One';
+  font: 1.2em 'Russo One';
   text-align: center;
 }
 
@@ -41,7 +41,7 @@ label, #stats-input-list td {
 }
 
 .base-stat {
-  width: 5em;
+  width: 5.0em;
 }
 
 .table-row-even {
@@ -85,7 +85,8 @@ label, #stats-input-list td {
 }
 
 #species-table {
-  width: 120em;
+  /*width: 120em;*/
+  width: 96%;
   margin: auto;
   font: italic 0.8125em 'Exo 2';
 }
@@ -104,6 +105,10 @@ label, #stats-input-list td {
 
 #stats-input-list th {
   font: normal 1.0em 'Russo One';
+}
+
+#sort-control-dex {
+  min-width: 4.0em;
 }
 
 /* ---- NO-UI STYLING ---- */
