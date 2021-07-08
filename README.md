@@ -230,46 +230,7 @@ I wanted my palette to be rather subdued despite the exciting look that I was ho
 earthy red, sandy yellow, and dark gray instead of black. The reason why is that Pokémon does some of the work for me in
 that every type has an associated color:
 
-<table>
-  <tbody align="center">
-    <tr style="color:white;">
-      <td style="background-color:#A8A878;">NORMAL</td>
-      <td style="background-color:#F08030;">FIRE</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#C03028;">FIGHTING</td>
-      <td style="background-color:#6890F0;">WATER</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#A890F0;">FLYING</td>
-      <td style="background-color:#78C850;">GRASS</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#A040A0;">POISON</td>
-      <td style="background-color:#F8D030;">ELECTRIC</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#E0C068;">GROUND</td>
-      <td style="background-color:#F85888;">PSYCHIC</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#B8A038;">ROCK</td>
-      <td style="background-color:#98D8D8;">ICE</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#A8B820;">BUG</td>
-      <td style="background-color:#7038F8;">DRAGON</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#705898;">GHOST</td>
-      <td style="background-color:#705848;">DARK</td>
-    </tr>
-    <tr style="color:white;">
-      <td style="background-color:#B8B8D0;">STEEL</td>
-      <td style="background-color:#EE99AC;">FAIRY</td>
-    </tr>
-  </tbody>
-</table>
+![Image](./imgs/Type_Color_Palette.PNG)
 
 Naturally, I wished to use those colors for the type diversity chart and damage taken chart (again, I wasn’t able to
 show that due to tool limitations); however, that would essentially make those charts into rainbows. I therefore needed
