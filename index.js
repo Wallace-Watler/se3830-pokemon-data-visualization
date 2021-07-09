@@ -84,7 +84,7 @@ let SORT_CONTROL_ACTIVE = 0; // Which control is active
 let SORT_CONTROL_ASCENDING = true; // Whether the active control is currently sorting ascending or descending
 
 const TYPE_FILTERS = TYPE_NAMES.map(name => document.getElementById("filter-" + name.toLowerCase()));
-const GEN_FILTERS = [...Array(6).keys()].map(i => document.getElementById("filter-gen" + (i + 1)));
+const GEN_FILTERS = [...Array(7).keys()].map(i => document.getElementById("filter-gen" + (i + 1)));
 const MEGA_FILTER = document.getElementById("filter-megas");
 let SLIDERS = [];
 
