@@ -8486,5 +8486,878 @@ const SPECIES = [
         type1: TYPE_NAMES.indexOf("Steel"),
         type2: undefined,
         isMega: false
+    },
+    {
+        dexNumber: "810",
+        gen: 8,
+        name: "Grookey",
+        baseStats: [51.66666667, 50, 65, 50, 40, 40, 65],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "811",
+        gen: 8,
+        name: "Thwackey",
+        baseStats: [70, 70, 85, 70, 55, 60, 80],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "812",
+        gen: 8,
+        name: "Rillaboom",
+        baseStats: [88.33333333, 100, 125, 90, 60, 70, 85],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "813",
+        gen: 8,
+        name: "Scorbunny",
+        baseStats: [51.66666667, 50, 71, 40, 40, 40, 69],
+        type1: TYPE_NAMES.indexOf("Fire"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "814",
+        gen: 8,
+        name: "Raboot",
+        baseStats: [51.66666667, 50, 71, 40, 40, 40, 69],
+        type1: TYPE_NAMES.indexOf("Fire"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "815",
+        gen: 8,
+        name: "Cinderace",
+        baseStats: [88.33333333, 80, 116, 75, 65, 75, 119],
+        type1: TYPE_NAMES.indexOf("Fire"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "816",
+        gen: 8,
+        name: "Sobble",
+        baseStats: [51.66666667, 50, 40, 40, 70, 40, 70],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "817",
+        gen: 8,
+        name: "Drizzile",
+        baseStats: [70, 65, 60, 55, 95, 55, 90],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "818",
+        gen: 8,
+        name: "Inteleon",
+        baseStats: [88.33333333, 70, 85, 65, 125, 65, 120],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "819",
+        gen: 8,
+        name: "Skwovet",
+        baseStats: [45.83333333, 70, 55, 55, 35, 35, 25],
+        type1: TYPE_NAMES.indexOf("Normal"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "820",
+        gen: 8,
+        name: "Greedent",
+        baseStats: [76.66666667, 120, 95, 95, 55, 75, 20],
+        type1: TYPE_NAMES.indexOf("Normal"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "821",
+        gen: 8,
+        name: "Rookidee",
+        baseStats: [40.83333333, 38, 47, 35, 33, 35, 57],
+        type1: TYPE_NAMES.indexOf("Flying"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "822",
+        gen: 8,
+        name: "Corvisquire",
+        baseStats: [60.83333333, 68, 67, 55, 43, 55, 77],
+        type1: TYPE_NAMES.indexOf("Flying"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "823",
+        gen: 8,
+        name: "Corviknight",
+        baseStats: [82.5, 98, 87, 105, 53, 85, 67],
+        type1: TYPE_NAMES.indexOf("Flying"),
+        type2: TYPE_NAMES.indexOf("Steel"),
+        isMega: false
+    },
+    {
+        dexNumber: "824",
+        gen: 8,
+        name: "Blipbug",
+        baseStats: [30, 25, 20, 20, 25, 45, 45],
+        type1: TYPE_NAMES.indexOf("Bug"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "825",
+        gen: 8,
+        name: "Dottler",
+        baseStats: [55.83333333, 50, 35, 80, 50, 90, 30],
+        type1: TYPE_NAMES.indexOf("Bug"),
+        type2: TYPE_NAMES.indexOf("Psychic"),
+        isMega: false
+    },
+    {
+        dexNumber: "826",
+        gen: 8,
+        name: "Orbeetle",
+        baseStats: [84.16666667, 60, 45, 110, 80, 120, 90],
+        type1: TYPE_NAMES.indexOf("Bug"),
+        type2: TYPE_NAMES.indexOf("Psychic"),
+        isMega: false
+    },
+    {
+        dexNumber: "827",
+        gen: 8,
+        name: "Nickit",
+        baseStats: [40.83333333, 40, 28, 28, 47, 52, 50],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "828",
+        gen: 8,
+        name: "Thievul",
+        baseStats: [75.83333333, 70, 58, 58, 87, 92, 90],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "829",
+        gen: 8,
+        name: "Gossifleur",
+        baseStats: [41.66666667, 40, 40, 60, 40, 60, 10],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "830",
+        gen: 8,
+        name: "Eldegoss",
+        baseStats: [76.66666667, 60, 50, 90, 80, 120, 60],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "831",
+        gen: 8,
+        name: "Wooloo",
+        baseStats: [45, 42, 40, 55, 40, 45, 48],
+        type1: TYPE_NAMES.indexOf("Normal"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "832",
+        gen: 8,
+        name: "Dubwool",
+        baseStats: [81.66666667, 72, 80, 100, 60, 90, 88],
+        type1: TYPE_NAMES.indexOf("Normal"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "833",
+        gen: 8,
+        name: "Chewtle",
+        baseStats: [47.33333333, 50, 64, 50, 38, 38, 44],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "834",
+        gen: 8,
+        name: "Drednaw",
+        baseStats: [80.83333333, 90, 115, 90, 48, 68, 74],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: TYPE_NAMES.indexOf("Rock"),
+        isMega: false
+    },
+    {
+        dexNumber: "835",
+        gen: 8,
+        name: "Yamper",
+        baseStats: [45, 59, 45, 50, 40, 50, 26],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "836",
+        gen: 8,
+        name: "Boltund",
+        baseStats: [81.66666667, 69, 90, 60, 90, 60, 121],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "837",
+        gen: 8,
+        name: "Rolycoly",
+        baseStats: [40, 30, 40, 50, 40, 50, 30],
+        type1: TYPE_NAMES.indexOf("Rock"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "838",
+        gen: 8,
+        name: "Carkol",
+        baseStats: [68.33333333, 80, 60, 90, 60, 70, 50],
+        type1: TYPE_NAMES.indexOf("Rock"),
+        type2: TYPE_NAMES.indexOf("Fire"),
+        isMega: false
+    },
+    {
+        dexNumber: "839",
+        gen: 8,
+        name: "Coalossal",
+        baseStats: [85, 110, 80, 120, 80, 90, 30],
+        type1: TYPE_NAMES.indexOf("Rock"),
+        type2: TYPE_NAMES.indexOf("Fire"),
+        isMega: false
+    },
+    {
+        dexNumber: "840",
+        gen: 8,
+        name: "Applin",
+        baseStats: [43.33333333, 40, 40, 80, 40, 40, 20],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "841",
+        gen: 8,
+        name: "Flapple",
+        baseStats: [80.83333333, 70, 110, 80, 95, 60, 70],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "842",
+        gen: 8,
+        name: "Appletun",
+        baseStats: [80.83333333, 110, 85, 80, 100, 80, 30],
+        type1: TYPE_NAMES.indexOf("Grass"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "843",
+        gen: 8,
+        name: "Silicobra",
+        baseStats: [52.5, 52, 57, 75, 35, 50, 46],
+        type1: TYPE_NAMES.indexOf("Ground"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "844",
+        gen: 8,
+        name: "Sandaconda",
+        baseStats: [85, 72, 107, 125, 65, 70, 71],
+        type1: TYPE_NAMES.indexOf("Ground"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "845",
+        gen: 8,
+        name: "Cramorant",
+        baseStats: [79.16666667, 70, 85, 55, 85, 95, 85],
+        type1: TYPE_NAMES.indexOf("Flying"),
+        type2: TYPE_NAMES.indexOf("Water"),
+        isMega: false
+    },
+    {
+        dexNumber: "846",
+        gen: 8,
+        name: "Arrokuda",
+        baseStats: [46.66666667, 41, 63, 40, 40, 30, 66],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "847",
+        gen: 8,
+        name: "Barraskewda",
+        baseStats: [81.66666667, 61, 123, 60, 60, 50, 136],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "848",
+        gen: 8,
+        name: "Toxel",
+        baseStats: [40.33333333, 40, 38, 35, 54, 35, 40],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: TYPE_NAMES.indexOf("Poison"),
+        isMega: false
+    },
+    {
+        dexNumber: "849",
+        gen: 8,
+        name: "Toxtricity",
+        baseStats: [83.66666667, 75, 98, 70, 114, 70, 75],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: TYPE_NAMES.indexOf("Poison"),
+        isMega: false
+    },
+    {
+        dexNumber: "850",
+        gen: 8,
+        name: "Sizzlipede",
+        baseStats: [50.83333333, 50, 65, 45, 50, 50, 45],
+        type1: TYPE_NAMES.indexOf("Fire"),
+        type2: TYPE_NAMES.indexOf("Bug"),
+        isMega: false
+    },
+    {
+        dexNumber: "851",
+        gen: 8,
+        name: "Centiskorch",
+        baseStats: [87.5, 100, 115, 65, 90, 90, 65],
+        type1: TYPE_NAMES.indexOf("Fire"),
+        type2: TYPE_NAMES.indexOf("Bug"),
+        isMega: false
+    },
+    {
+        dexNumber: "852",
+        gen: 8,
+        name: "Clobbopus",
+        baseStats: [51.66666667, 50, 68, 60, 50, 50, 32],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "853",
+        gen: 8,
+        name: "Grapploct",
+        baseStats: [80, 80, 118, 90, 70, 80, 42],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "854",
+        gen: 8,
+        name: "Sinistea",
+        baseStats: [51.33333333, 40, 45, 45, 74, 54, 50],
+        type1: TYPE_NAMES.indexOf("Ghost"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "855",
+        gen: 8,
+        name: "Polteageist",
+        baseStats: [84.66666667, 60, 65, 65, 134, 114, 70],
+        type1: TYPE_NAMES.indexOf("Ghost"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "856",
+        gen: 8,
+        name: "Hatenna",
+        baseStats: [44.16666667, 42, 30, 45, 56, 53, 39],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "857",
+        gen: 8,
+        name: "Hattrem",
+        baseStats: [61.66666667, 57, 40, 65, 86, 73, 49],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "858",
+        gen: 8,
+        name: "Hatterene",
+        baseStats: [85, 57, 90, 95, 136, 103, 29],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: TYPE_NAMES.indexOf("Fairy"),
+        isMega: false
+    },
+    {
+        dexNumber: "859",
+        gen: 8,
+        name: "Impidimp",
+        baseStats: [44.16666667, 45, 45, 30, 55, 40, 50],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: TYPE_NAMES.indexOf("Fairy"),
+        isMega: false
+    },
+    {
+        dexNumber: "860",
+        gen: 8,
+        name: "Morgrem",
+        baseStats: [61.66666667, 65, 60, 45, 75, 55, 70],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: TYPE_NAMES.indexOf("Fairy"),
+        isMega: false
+    },
+    {
+        dexNumber: "861",
+        gen: 8,
+        name: "Grimmsnarl",
+        baseStats: [85, 95, 120, 65, 95, 75, 60],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: TYPE_NAMES.indexOf("Fairy"),
+        isMega: false
+    },
+    {
+        dexNumber: "862",
+        gen: 8,
+        name: "Obstagoon",
+        baseStats: [86.66666667, 93, 90, 101, 60, 81, 95],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: TYPE_NAMES.indexOf("Normal"),
+        isMega: false
+    },
+    {
+        dexNumber: "863",
+        gen: 8,
+        name: "Perrserker",
+        baseStats: [73.33333333, 70, 110, 100, 50, 60, 50],
+        type1: TYPE_NAMES.indexOf("Steel"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "864",
+        gen: 8,
+        name: "Cursola",
+        baseStats: [85, 60, 95, 50, 145, 130, 30],
+        type1: TYPE_NAMES.indexOf("Ghost"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "865",
+        gen: 8,
+        name: "Sirfetch'd",
+        baseStats: [84.5, 62, 135, 95, 68, 82, 65],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "866",
+        gen: 8,
+        name: "Mr. Rime",
+        baseStats: [86.66666667, 80, 85, 75, 110, 100, 70],
+        type1: TYPE_NAMES.indexOf("Ice"),
+        type2: TYPE_NAMES.indexOf("Psychic"),
+        isMega: false
+    },
+    {
+        dexNumber: "867",
+        gen: 8,
+        name: "Runerigus",
+        baseStats: [80.5, 58, 95, 145, 50, 105, 30],
+        type1: TYPE_NAMES.indexOf("Ground"),
+        type2: TYPE_NAMES.indexOf("Ghost"),
+        isMega: false
+    },
+    {
+        dexNumber: "868",
+        gen: 8,
+        name: "Milcery",
+        baseStats: [45, 45, 40, 40, 50, 61, 34],
+        type1: TYPE_NAMES.indexOf("Fairy"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "869",
+        gen: 8,
+        name: "Alcremie",
+        baseStats: [82.5, 65, 60, 75, 110, 121, 64],
+        type1: TYPE_NAMES.indexOf("Fairy"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "870",
+        gen: 8,
+        name: "Falinks",
+        baseStats: [78.33333333, 65, 100, 100, 70, 60, 75],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "871",
+        gen: 8,
+        name: "Pincurchin",
+        baseStats: [72.5, 48, 101, 95, 91, 85, 15],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "872",
+        gen: 8,
+        name: "Snom",
+        baseStats: [30.83333333, 30, 25, 35, 45, 30, 20],
+        type1: TYPE_NAMES.indexOf("Ice"),
+        type2: TYPE_NAMES.indexOf("Bug"),
+        isMega: false
+    },
+    {
+        dexNumber: "873",
+        gen: 8,
+        name: "Frosmoth",
+        baseStats: [79.16666667, 70, 65, 60, 125, 90, 65],
+        type1: TYPE_NAMES.indexOf("Ice"),
+        type2: TYPE_NAMES.indexOf("Bug"),
+        isMega: false
+    },
+    {
+        dexNumber: "874",
+        gen: 8,
+        name: "Stonjourner",
+        baseStats: [78.33333333, 100, 125, 135, 20, 20, 70],
+        type1: TYPE_NAMES.indexOf("Rock"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "875",
+        gen: 8,
+        name: "Eiscue - Ice Face",
+        baseStats: [78.33333333, 75, 80, 110, 65, 90, 50],
+        type1: TYPE_NAMES.indexOf("Ice"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "875.1",
+        gen: 8,
+        name: "Eiscue - Noice Face",
+        baseStats: [78.33333333, 75, 80, 70, 65, 50, 130],
+        type1: TYPE_NAMES.indexOf("Ice"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "876",
+        gen: 8,
+        name: "Indeedee - Male",
+        baseStats: [79.16666667, 60, 65, 55, 105, 95, 95],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: TYPE_NAMES.indexOf("Normal"),
+        isMega: false
+    },
+    {
+        dexNumber: "876.1",
+        gen: 8,
+        name: "Indeedee - Female",
+        baseStats: [79.16666667, 70, 55, 65, 95, 105, 85],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: TYPE_NAMES.indexOf("Normal"),
+        isMega: false
+    },
+    {
+        dexNumber: "877",
+        gen: 8,
+        name: "Morpeko",
+        baseStats: [72.66666667, 58, 95, 58, 70, 58, 97],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: TYPE_NAMES.indexOf("Dark"),
+        isMega: false
+    },
+    {
+        dexNumber: "878",
+        gen: 8,
+        name: "Cufant",
+        baseStats: [55, 72, 80, 49, 40, 49, 40],
+        type1: TYPE_NAMES.indexOf("Steel"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "879",
+        gen: 8,
+        name: "Copperajah",
+        baseStats: [83.33333333, 122, 130, 69, 80, 69, 30],
+        type1: TYPE_NAMES.indexOf("Steel"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "880",
+        gen: 8,
+        name: "Dracozolt",
+        baseStats: [84.16666667, 90, 100, 90, 80, 70, 75],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "881",
+        gen: 8,
+        name: "Arctozolt",
+        baseStats: [84.16666667, 90, 100, 90, 90, 80, 55],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: TYPE_NAMES.indexOf("Ice"),
+        isMega: false
+    },
+    {
+        dexNumber: "882",
+        gen: 8,
+        name: "Dracovish",
+        baseStats: [84.16666667, 90, 90, 100, 70, 80, 75],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "883",
+        gen: 8,
+        name: "Arctovish",
+        baseStats: [84.16666667, 90, 90, 100, 80, 90, 55],
+        type1: TYPE_NAMES.indexOf("Water"),
+        type2: TYPE_NAMES.indexOf("Ice"),
+        isMega: false
+    },
+    {
+        dexNumber: "884",
+        gen: 8,
+        name: "Duraludon",
+        baseStats: [89.16666667, 70, 95, 115, 120, 50, 85],
+        type1: TYPE_NAMES.indexOf("Steel"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "885",
+        gen: 8,
+        name: "Dreepy",
+        baseStats: [45, 28, 60, 30, 40, 30, 82],
+        type1: TYPE_NAMES.indexOf("Dragon"),
+        type2: TYPE_NAMES.indexOf("Ghost"),
+        isMega: false
+    },
+    {
+        dexNumber: "886",
+        gen: 8,
+        name: "Drakloak",
+        baseStats: [68.33333333, 68, 80, 50, 60, 50, 102],
+        type1: TYPE_NAMES.indexOf("Dragon"),
+        type2: TYPE_NAMES.indexOf("Ghost"),
+        isMega: false
+    },
+    {
+        dexNumber: "887",
+        gen: 8,
+        name: "Dragapult",
+        baseStats: [100, 88, 120, 75, 100, 75, 142],
+        type1: TYPE_NAMES.indexOf("Dragon"),
+        type2: TYPE_NAMES.indexOf("Ghost"),
+        isMega: false
+    },
+    {
+        dexNumber: "888",
+        gen: 8,
+        name: "Zacian - Crowned Sword",
+        baseStats: [120, 92, 170, 115, 80, 115, 148],
+        type1: TYPE_NAMES.indexOf("Fairy"),
+        type2: TYPE_NAMES.indexOf("Steel"),
+        isMega: false
+    },
+    {
+        dexNumber: "888.1",
+        gen: 8,
+        name: "Zacian - Hero of Many Battles",
+        baseStats: [111.6666667, 92, 130, 115, 80, 115, 138],
+        type1: TYPE_NAMES.indexOf("Fairy"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "889",
+        gen: 8,
+        name: "Zamazenta - Crowned Shield",
+        baseStats: [120, 92, 130, 145, 80, 145, 128],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: TYPE_NAMES.indexOf("Steel"),
+        isMega: false
+    },
+    {
+        dexNumber: "889.1",
+        gen: 8,
+        name: "Zamazenta - Hero of Many Battles",
+        baseStats: [111.6666667, 92, 130, 115, 80, 115, 138],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "890",
+        gen: 8,
+        name: "Eternatus",
+        baseStats: [115, 140, 85, 95, 145, 95, 130],
+        type1: TYPE_NAMES.indexOf("Poison"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "890.1",
+        gen: 8,
+        name: "Eternamax Eternatus",
+        baseStats: [187.5, 255, 115, 250, 125, 250, 130],
+        type1: TYPE_NAMES.indexOf("Poison"),
+        type2: TYPE_NAMES.indexOf("Dragon"),
+        isMega: false
+    },
+    {
+        dexNumber: "891",
+        gen: 8,
+        name: "Kubfu",
+        baseStats: [64.16666667, 60, 90, 60, 53, 50, 72],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "892",
+        gen: 8,
+        name: "Urshifu - Single Strike Style",
+        baseStats: [91.66666667, 100, 130, 100, 63, 60, 97],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: TYPE_NAMES.indexOf("Dark"),
+        isMega: false
+    },
+    {
+        dexNumber: "892.1",
+        gen: 8,
+        name: "Urshifu - Rapid Strike Style",
+        baseStats: [91.66666667, 100, 130, 100, 63, 60, 97],
+        type1: TYPE_NAMES.indexOf("Fighting"),
+        type2: TYPE_NAMES.indexOf("Water"),
+        isMega: false
+    },
+    {
+        dexNumber: "893",
+        gen: 8,
+        name: "Zarude",
+        baseStats: [100, 105, 120, 105, 70, 95, 105],
+        type1: TYPE_NAMES.indexOf("Dark"),
+        type2: TYPE_NAMES.indexOf("Grass"),
+        isMega: false
+    },
+    {
+        dexNumber: "894",
+        gen: 8,
+        name: "Regieleki",
+        baseStats: [96.66666667, 80, 100, 50, 100, 50, 200],
+        type1: TYPE_NAMES.indexOf("Electric"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "895",
+        gen: 8,
+        name: "Regidrago",
+        baseStats: [96.66666667, 200, 100, 50, 100, 50, 80],
+        type1: TYPE_NAMES.indexOf("Dragon"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "896",
+        gen: 8,
+        name: "Glastrier",
+        baseStats: [96.66666667, 100, 145, 130, 65, 110, 30],
+        type1: TYPE_NAMES.indexOf("Ice"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "897",
+        gen: 8,
+        name: "Spectrier",
+        baseStats: [96.66666667, 100, 65, 60, 145, 80, 130],
+        type1: TYPE_NAMES.indexOf("Ghost"),
+        type2: undefined,
+        isMega: false
+    },
+    {
+        dexNumber: "898",
+        gen: 8,
+        name: "Calyrex",
+        baseStats: [83.33333333, 100, 80, 80, 80, 80, 80],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: TYPE_NAMES.indexOf("Grass"),
+        isMega: false
+    },
+    {
+        dexNumber: "898.1",
+        gen: 8,
+        name: "Calyrex - Ice Rider",
+        baseStats: [113.3333333, 100, 165, 150, 85, 130, 50],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: TYPE_NAMES.indexOf("Ice"),
+        isMega: false
+    },
+    {
+        dexNumber: "898.2",
+        gen: 8,
+        name: "Calyrex - Shadow Rider",
+        baseStats: [113.3333333, 100, 85, 80, 165, 100, 150],
+        type1: TYPE_NAMES.indexOf("Psychic"),
+        type2: TYPE_NAMES.indexOf("Ghost"),
+        isMega: false
     }
 ];
