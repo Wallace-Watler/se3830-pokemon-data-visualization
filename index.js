@@ -84,7 +84,7 @@ let SORT_CONTROL_ACTIVE = 0; // Which control is active
 let SORT_CONTROL_ASCENDING = true; // Whether the active control is currently sorting ascending or descending
 
 const TYPE_FILTERS = TYPE_NAMES.map(name => document.getElementById("filter-" + name.toLowerCase()));
-const GEN_FILTERS = [...Array(8).keys()].map(i => document.getElementById("filter-gen" + (i + 1)));
+const REGION_FILTERS = REGION_NAMES.map(name => document.getElementById("filter-" + name.toLowerCase()));
 const MEGA_FILTER = document.getElementById("filter-megas");
 let SLIDERS = [];
 
@@ -245,14 +245,10 @@ function filterSpecies() {
             const handlePos = SLIDERS[i].noUiSlider.get();
             return species.baseStats[i] >= handlePos[0] && species.baseStats[i] <= handlePos[1];
         }).reduce((acc, cur) => acc && cur, true);
-        
-        console.log(species);
-        console.log(truthyOrZero(species.type2));
-        console.log(TYPE_FILTERS[species.type2]);
-        console.log(TYPE_FILTERS["Poison"]);
+
         const typeMatches = TYPE_FILTERS[species.type1].checked || (truthyOrZero(species.type2) && TYPE_FILTERS[species.type2].checked);
         
-        if(statsMatch && typeMatches && GEN_FILTERS[species.gen - 1].checked && (!species.isMega || MEGA_FILTER.checked)) {
+        if(statsMatch && typeMatches && REGION_FILTERS[species.region].checked && (!species.isMega || MEGA_FILTER.checked)) {
             DISPLAYED_SPECIES.push(species);
         }
     }
@@ -407,7 +403,7 @@ function main() {
     };
     
     const FILTER_ALL_TYPES = document.getElementById("filter-all-types");
-    const FILTER_ALL_GENS = document.getElementById("filter-all-gens");
+    const FILTER_ALL_REGIONS = document.getElementById("filter-all-regions");
     
     TYPE_FILTERS.forEach(typeFilter => typeFilter.oninput = function (event) {
         if(FILTER_ALL_TYPES.checked != event.target.checked) {
@@ -419,13 +415,13 @@ function main() {
         }
         updateEverything();
     });
-    
-    GEN_FILTERS.forEach(genFilter => genFilter.oninput = function (event) {
-        if(FILTER_ALL_GENS.checked != event.target.checked) {
+
+    REGION_FILTERS.forEach(regionFilter => regionFilter.oninput = function (event) {
+        if(FILTER_ALL_REGIONS.checked != event.target.checked) {
             if(!event.target.checked) {
-                FILTER_ALL_GENS.checked = false;
-            } else if(event.target.checked && GEN_FILTERS.reduce((acc, cur) => acc && cur.checked, true)) {
-                FILTER_ALL_GENS.checked = true;
+                FILTER_ALL_REGIONS.checked = false;
+            } else if(event.target.checked && REGION_FILTERS.reduce((acc, cur) => acc && cur.checked, true)) {
+                FILTER_ALL_REGIONS.checked = true;
             }
         }
         updateEverything();
@@ -435,9 +431,9 @@ function main() {
         TYPE_FILTERS.forEach(typeFilter => typeFilter.checked = event.target.checked);
         updateEverything();
     };
-    
-    FILTER_ALL_GENS.oninput = function (event) {
-        GEN_FILTERS.forEach(genFilter => genFilter.checked = event.target.checked);
+
+    FILTER_ALL_REGIONS.oninput = function (event) {
+        REGION_FILTERS.forEach(regionFilter => regionFilter.checked = event.target.checked);
         updateEverything();
     };
     
